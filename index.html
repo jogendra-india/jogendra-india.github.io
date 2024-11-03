@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Tone & Brightness Control</title>
+    <title>Warm to Cool Color Tone</title>
     <style>
         body {
             display: flex;
@@ -13,41 +13,37 @@
             height: 100vh;
             background-color: hsl(0, 50%, 50%);
             transition: background-color 0.3s;
+            margin: 0;
         }
 
         .slider-container {
-            margin: 20px;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
             text-align: center;
         }
 
         .slider {
-            width: 300px;
-            margin-top: 10px;
+            width: 80%;
+            max-width: 400px;
         }
     </style>
 </head>
 <body>
     <div class="slider-container">
-        <label for="colorTone">Color Tone (Warm to Cold)</label>
+        <label for="colorTone">Warm to Cool Color Tone</label>
         <input type="range" id="colorTone" class="slider" min="0" max="360" value="0">
-    </div>
-    <div class="slider-container">
-        <label for="brightness">Brightness</label>
-        <input type="range" id="brightness" class="slider" min="10" max="90" value="50">
     </div>
 
     <script>
         const colorTone = document.getElementById('colorTone');
-        const brightness = document.getElementById('brightness');
 
         function updateBackgroundColor() {
             const hue = colorTone.value;
-            const lightness = brightness.value;
-            document.body.style.backgroundColor = `hsl(${hue}, 50%, ${lightness}%)`;
+            document.body.style.backgroundColor = `hsl(${hue}, 50%, 50%)`;
         }
 
         colorTone.addEventListener('input', updateBackgroundColor);
-        brightness.addEventListener('input', updateBackgroundColor);
     </script>
 </body>
 </html>
