@@ -32,14 +32,15 @@
 <body>
     <div class="slider-container">
         <label for="colorTone">Cool to Warm Color Tone</label>
-        <input type="range" id="colorTone" class="slider" min="240" max="0" value="240">
+        <input type="range" id="colorTone" class="slider" min="0" max="240" value="240">
     </div>
 
     <script>
         const colorTone = document.getElementById('colorTone');
 
         function updateBackgroundColor() {
-            const hue = colorTone.value;
+            // Reverse the value to start with blue (240) and end with red (0)
+            const hue = 240 - colorTone.value;
             document.body.style.backgroundColor = `hsl(${hue}, 50%, 50%)`;
         }
 
